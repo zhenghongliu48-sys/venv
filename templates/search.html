@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>搜尋：{{ keyword }}</h3>
+
+<ul>
+{% for p in products %}
+    <li>
+        <strong>{{ p.content }}</strong>  
+        (店家：{{ p.shop }} | 價格：{{ p.price }})
+
+        {% if p.image_filename %}
+            <br><img src="/static/uploads/{{ p.image_filename }}" width="120">
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}
