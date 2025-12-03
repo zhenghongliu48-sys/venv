@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>商品上架</h3>
+
+<form action="" method="post" enctype="multipart/form-data">
+    商品內容：<input type="text" name="content" required><br>
+    店家：<input type="text" name="shop" required><br>
+    價格：<input type="number" name="price" required><br>
+
+    商品圖片：<input type="file" name="image"><br>
+
+    分類：
+    <select name="category">
+        <option value="">無分類</option>
+        {% for c in categories %}
+            <option value="{{ c.id }}">{{ c.name }}</option>
+        {% endfor %}
+    </select><br>
+
+    <button type="submit">上傳商品</button>
+</form>
+
+<hr>
+
+<h4>新增分類</h4>
+<form action="{{ url_for('add_category') }}" method="post">
+    <input type="text" name="category_name" placeholder="輸入分類名稱" required>
+    <button type="submit">新增分類</button>
+</form>
+
+{% endblock %}
