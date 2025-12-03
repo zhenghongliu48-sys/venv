@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商品系統</title>
+</head>
+<body>
+    <h2>商品管理系統</h2>
+    <nav>
+        <a href="{{ url_for('index') }}">首頁</a> |
+        <a href="{{ url_for('upload') }}">商品上架</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
