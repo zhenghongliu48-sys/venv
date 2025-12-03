@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="{{ url_for('search') }}" method="get">
+    <input type="text" name="keyword" placeholder="搜尋商品內容">
+    <button type="submit">搜尋</button>
+</form>
+
+<h3>全部商品</h3>
+<ul>
+{% for p in products %}
+    <li>
+        <strong>{{ p.content }}</strong>  
+        (店家：{{ p.shop }} | 價格：{{ p.price }})
+
+        {% if p.image_filename %}
+            <br><img src="/static/uploads/{{ p.image_filename }}" width="120">
+        {% endif %}
+        {% if p.category_id %}
+            <br>分類：{{ p.category_id }}
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}
